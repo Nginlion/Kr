@@ -8,14 +8,22 @@ var mLoader = require(mPath.join(gLibPath, 'loader'));
 var mime = mConfig.getConfig('mime');
 
 exports.run = function(request, response) {
-    var header = {
-        'Content-Type': mime.html,
-        'Connection': 'keep-alive',
-        'Transfer-Encoding': 'chunked'
-    };
+    var normal = false;
 
-    response.writeHead(200, header);
-    var html = mLoader.loadView('localhost', 'index/page/index.html');
-    console.log(html);
-    response.end(html);
+    if (normal) {
+        var header = {
+            'Content-Type': mime.html,
+            'Connection': 'keep-alive',
+            'Transfer-Encoding': 'chunked'
+        };
+
+        response.writeHead(200, header);
+        var html = mLoader.loadView('default', 'index/page/index.html');
+        response.end(html);
+    }
+    else {
+        var page = mLoader.load('default', 'page/index');
+        console.log(page);
+        page.run(request, response);
+    }
 }
