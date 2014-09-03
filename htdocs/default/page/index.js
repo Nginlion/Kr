@@ -29,22 +29,22 @@ exports.run = function(request, response) {
     var html = mLoader.loadView('default', 'index/page/index.html');
     html = html.toString().replace('<\/html>', '').replace('<\/body>', '');
     if (response.write(html, 'utf-8')) {
-            console.log(html);
-            response.plCount = 3;
+        console.log(html);
+        response.plCount = 3;
+        console.log('plCount=' + response.plCount);
+
+        em.on('pl_finished', function() {
+            --response.plCount;
             console.log('plCount=' + response.plCount);
+            if (response.plCount == 0) {
+                em.removeAllListeners();
+                console.log('page_index');
+                console.log('</body></html>')
+                response.end('</body></html>', 'utf-8');
+            }
+        });
 
-            em.on('pl_finished', function() {
-                --response.plCount;
-                console.log('plCount=' + response.plCount);
-                if (response.plCount == 0) {
-                    em.removeAllListeners();
-                    console.log('page_index');
-                    console.log('</body></html>')
-                    response.end('</body></html>', 'utf-8');
-                }
-            });
-
-            em.emit('render_pl', request, response, em);
+        em.emit('render_pl', request, response, em);
     }
 }
 
