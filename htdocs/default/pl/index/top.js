@@ -22,6 +22,6 @@ exports.run = function(em) {
         html = html.toString().replace('<\/html>', '').replace('<\/body>', '');
         console.log(html);
 
-        setTimeout(fakeTask(html, response, em), 2000);
+        setTimeout(fakeTask(html, response, em), 500);
     });
 }

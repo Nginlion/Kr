@@ -21,10 +21,7 @@ exports.run = function(em) {
         var html = mLoader.loadView('default', 'index/pl/middle.html');
         html = html.toString().replace('<\/html>', '').replace('<\/body>', '');
         console.log(html);
-        for (var i = 1; i < 1000000; ++i) {
-            var a = new Date().toDateString();
-        }
 
-        setTimeout(fakeTask(html, response, em), 4000);
+        setTimeout(fakeTask(html, response, em), 1000);
     });
 }

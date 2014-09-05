@@ -16,6 +16,7 @@ var mPath = require('path')
  * 全局变量
  */
 gLibPath = mPath.join(mPath.dirname(__dirname), 'lib');
+gJsCache = {};
 
 var serverConfig = mConfig.getConfig('server');
 
@@ -33,6 +34,8 @@ var mRouter = require(mPath.join(gLibPath, 'router'));
 var server = mHttp.createServer(function(request, response){
     mRouter.run(request, response);
 });
+
+server.maxConnections = 1024;
 
 try {
     server.listen(serverConfig.port);
