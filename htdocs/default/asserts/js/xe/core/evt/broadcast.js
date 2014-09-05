@@ -21,6 +21,9 @@ Xe.register('core.evt.broadcast', function($) {
 
         var callbackHandler = function(callback, data) {
             return function() {
+                console.log('===============[callbackHandler]===============')
+                console.log(callback);
+                console.log(data);
                 if (data) {
                     callback.apply(data);
                 }
@@ -76,6 +79,7 @@ Xe.register('core.evt.broadcast', function($) {
                 var callback = handler['callbacks'][i];
                 setTimeout(callbackHandler(callback, data), timeout);
                 timeout += 5;
+                console.log(timeout);
             }
         }
 

@@ -7,4 +7,4 @@ Xe.register('core.dom.select', function($) {
     return function() {
         console.log(1);
     };
-})
+});

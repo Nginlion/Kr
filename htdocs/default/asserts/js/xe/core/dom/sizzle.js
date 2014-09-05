@@ -16,4 +16,4 @@ Xe.register('core.dom.sizzle', function($) {
 
         return Sizzle(selector);
     };
-})
+});
