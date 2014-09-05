@@ -8,15 +8,20 @@
 </head>
 <body>
     <div id="main">
-        <div id="pl_top" node-type="plTop">TOP</div>
+        <div id="pl_top" node-type="plTop" >
+            <div action-type="pl" node-type="pl">
+                TOP
+            </div>
+        </div>
         <div id="pl_middle" node-type="plMiddle">MIDDLE</div>
         <div id="pl_bottom">BOTTOM</div>
         <div id="pl_buttons">
-            <div action-type="btn1" action-data="a=b&c=d" class="testBtn"></div>
-            <div action-type="btn2" action-data="a=b" class="testBtn"></div>
-            <div action-type="btn3" action-data="a=b&c=d&e=f" class="testBtn"></div>
-            <div action-type="btn4" action-data="a=b&c=中文&e=f" class="testBtn"></div>
-         </div>
+            <div action-type="btn1" action-data="a=b&c=d" class="testBtn">ActionType btn1</div>
+            <div action-type="btn2" action-data="a=b" class="testBtn">ActionType btn2</div>
+            <div action-type="btn3" action-data="a=b&c=d&e=f" class="testBtn">ActionType btn3</div>
+            <div action-type="btn4" action-data="a=b&c=中文&e=f" class="testBtn">ActionType btn4</div>
+            <div action-type="btn1" action-data="a=b&c=d" class="testBtn">ActionType btn1</div>
+        </div>
     </div>
     <script src="/asserts/js/bp.js"></script>
     <script src="/asserts/js/xe/xe.js"></script>

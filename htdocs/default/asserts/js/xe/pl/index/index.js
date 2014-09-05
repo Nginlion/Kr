@@ -4,6 +4,7 @@
 $Import('pl.index.source.top');
 $Import('pl.index.source.bottom');
 $Import('pl.index.source.middle');
+$Import('pl.index.source.buttons');
 $Import('common.channel.demo');
 $Import('core.evt.delegate');
 
@@ -12,5 +13,6 @@ Xe.register('pl.index.index', function($) {
         $.pl.index.source.middle();
         $.pl.index.source.top();
         $.pl.index.source.bottom();
+        $.pl.index.source.buttons('pl_buttons');
     }
 });

@@ -23,7 +23,7 @@ Xe.register('core.dom.parser', function($) {
         }
 
         // parse node-type
-        var nodeType = $.core.dom.sizzle('#' + id + ' [node-type]');
+        var nodeType = $.core.dom.sizzle('#' + id + '[node-type]');
         var nodeTypeNodeMap = {};
         for (var i in nodeType) {
             var n = nodeType[i];
@@ -43,7 +43,7 @@ Xe.register('core.dom.parser', function($) {
         for (var i in actionType) {
             var n = actionType[i];
             var v = n.getAttribute('action-type');
-            var d = queryStringToJSON(n.getAttribute('action-data'));
+            var d = queryStringToJSON(n.getAttribute('action-data')) || {};
             if (actionTypeNodeMap[v] == undefined) {
                 actionTypeNodeMap[v] = new Array();
             }
