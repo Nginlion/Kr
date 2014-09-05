@@ -24,7 +24,7 @@ Xe.register('core.evt.delegate', function($) {
                 var callbacks = eventHolder[actionType][eventType];
                 for (var i in callbacks) {
                     var callback = callbacks[i];
-                    callback();
+                    callback(ev);
                 }
             }
         }
@@ -44,7 +44,26 @@ Xe.register('core.evt.delegate', function($) {
             nodeObj.addEventListener(event, commonEventHandler);
         }
 
+        var remove = function(actionType, event) {
+            console.log('EVT ===> ' + event);
+
+            if (undefined == eventHolder[actionType]) {
+                return;
+            }
+            if (undefined == eventHolder[actionType][event]) {
+                return;
+            }
+            console.log(eventHolder);
+            eventHolder[actionType].splice(0, eventHolder[actionType][event].length);
+            eventHolder.splice(actionType, 1);
+
+            //Chrome
+            nodeObj.removeEventListener(event, commonEventHandler);
+
+        }
+
         that.add = add;
+        that.remove = remove;
 
         return that;
     };

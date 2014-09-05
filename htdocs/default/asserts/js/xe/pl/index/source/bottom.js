@@ -12,10 +12,13 @@ Xe.register('pl.index.source.bottom', function($) {
     return function() {
         var cust1Func1 = function() {
             console.log('get cust1 and react as cust1Func1');
+            $.core.dom.sizzle('#pl_bottom')[0].innerHTML = "自定义事件响应1";
         }
 
         var cust1Func2 = function() {
             console.log('get cust1 and react as cust1Func2');
+            $.core.dom.sizzle('#pl_bottom')[0].style['font-size'] = '24px';
+            $.core.dom.sizzle('#pl_bottom')[0].style['background-color'] = '#5ebc5f';
         }
 
         console.log('subscribed common.channel.demo red');

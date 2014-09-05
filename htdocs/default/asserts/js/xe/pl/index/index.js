@@ -9,10 +9,13 @@ $Import('common.channel.demo');
 $Import('core.evt.delegate');
 
 Xe.register('pl.index.index', function($) {
-    return function() {
+    return (function() {
         $.pl.index.source.middle();
         $.pl.index.source.top();
         $.pl.index.source.bottom();
         $.pl.index.source.buttons('pl_buttons');
-    }
+        setTimeout(function(){
+            $.common.channel.demo.fire('red');
+        }, 6000);
+    })();
 });

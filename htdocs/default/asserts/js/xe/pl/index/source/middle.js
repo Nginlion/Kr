@@ -8,6 +8,8 @@ Xe.register('pl.index.source.middle', function($) {
     return function() {
         console.log('subscribed common.channel.demo red');
         $.common.channel.demo.subscribe('red', function(){
+            $.core.dom.sizzle('#pl_middle')[0].style['font-size'] = '48px';
+            $.core.dom.sizzle('#pl_middle')[0].innerHTML = "广播";
             var d = new Date();
             console.log('start time:' + d.toLocaleTimeString());
             var cnt  = 0;
