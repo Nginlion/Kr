@@ -2,15 +2,13 @@
  * Created by ng on 14-9-4.
  */
 
-$Import('core.dom.select');
-
 var Xe = (function() {
     var that = {};
 
     var register = function(moduleName, cb) {
         var path = moduleName.split('.');
         if (path.length < 1) {
-            throw e('invalid module name');
+            throw new Error('invalid module name');
         }
         var reg = that;
         var lastSep = path[path.length - 1];
